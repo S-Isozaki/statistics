@@ -1,0 +1,64 @@
+\setlength{\parindent}{0pt}
+
+ベルヌーイ分布
+\begin{equation*}
+  p_X(x)=
+  \begin{cases}
+    p^x(1-p)^{1-x} & (x=0,1)\\
+    0 & (x\neq 0,x\neq 1) \\
+  \end{cases}
+\end{equation*}
+分布関数
+\begin{equation*}
+  F_X(t)=
+  \begin{cases}
+    0 & (t < 0) \\
+    1-p & (0 \le t < 1) \\
+    1 & (t \ge 1) \\
+  \end{cases}
+\end{equation*}
+期待値
+\begin{equation*}
+  E(X)=0\times (1-p)+1\times p=p \\
+\end{equation*}
+分散
+\begin{equation*}
+  V(X)=(0-p)^2(1-p)+(1-p)^2p=p^2-p^3+p-2p^2+p^3=p(1-p) \\
+\end{equation*}
+
+二項分布
+\begin{equation*}
+  p_X(x)=\binom{n}{x}p^x(1-p)^{n-x} (x=0,1,\dots n) \\
+\end{equation*}
+二項定理
+\begin{equation*}
+  (a+b)^n=\sum_{x=0}^{n}\binom{n}{x}a^xb^{n-x} \\
+\end{equation*}
+\begin{equation*}
+  \sum_{x}p_X(x)=(p+(1-p))^n=1 \\
+\end{equation*}
+期待値
+\begin{align*}
+  E(X)&=\sum_{x=0}^{n}x\binom{n}{x}p^x(1-p)^{n-x} \\
+  &=\sum_{x=1}^{n}n\binom{n-1}{x-1}p^x(1-p)^{n-x} \\
+  &=np\sum_{x=1}^{n}\binom{n-1}{x-1}p^{x-1}(1-p)^{n-x} \\
+  &=np\sum_{x=0}^{n-1}\binom{n-1}{x}p^x(1-p)^{n-x-1} (x\rightarrow x+1) \\
+  &=np \\
+\end{align*}
+分散
+\begin{align*}
+  V(X)&=\left(\sum_{x=0}^{n}x^2p_X(x)\right)-2\mu\left(\sum_{x=0}^{n}xp_X(x)\right)+\mu^2\left(\sum_{x=0}^{n}p_X(x)\right) \\
+  &=\left(\sum_{x=0}^{n}x^2p_X(x)\right)-\mu^2 \\
+\end{align*}
+\begin{align*}
+  \sum_{x=0}^{n}x^2p_X(x)&=\left(\sum_{x=2}^{n}x(x-1)\binom{n}{x}p^x(1-p)^{n-x}\right)+E(X) \\
+  &=n(n-1)\left(\sum_{x=2}^{n}\binom{x-2}{n-2}p^x(1-p)^{n-x}\right)+np \\
+  &=n(n-1)p^2\left(\sum_{x=2}^{n}\binom{x}{n-2}p^x(1-p)^{n-x-2}\right)+np \\
+  &=n(n-1)p^2(p+(1-p))^{n-2}+np \\
+  &=n(n-1)p^2+np \\
+\end{align*}
+\begin{align*}
+  V(X)&=n(n-1)p^2+np-n^2p^2 \\
+  &=np-np^2 \\
+  &=np(1-p) \\
+\end{align*}
